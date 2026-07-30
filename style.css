@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+  --bg: #060a08;
+  --panel: #0b120e;
+  --line: #3c6b4c;
+  --glow: #7dffa0;
+  --dim: #4c8a63;
+  --bright: #d8ffe4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.35) 0px,
+      rgba(0, 0, 0, 0.35) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  color: var(--glow);
+  font-family: 'VT323', monospace;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.terminal {
+  width: 100%;
+  max-width: 560px;
+  border: 2px solid var(--line);
+  background: var(--panel);
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 0 24px rgba(125, 255, 160, 0.15), inset 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.terminal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--bright);
+  text-shadow: 0 0 6px var(--glow);
+  margin: 0 0 6px;
+}
+
+.subtitle {
+  color: var(--dim);
+  font-size: 18px;
+  margin: 0 0 20px;
+  letter-spacing: 1px;
+}
+
+.subtitle::before {
+  content: '> ';
+}
+
+.moves-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+button {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  color: var(--glow);
+  background: #0f1a13;
+  border: 2px solid var(--line);
+  padding: 12px 14px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+}
+
+button:hover {
+  background: var(--glow);
+  color: #06120a;
+  box-shadow: 0 0 12px var(--glow);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.readout {
+  border-top: 1px dashed var(--line);
+  padding-top: 16px;
+  margin-top: 4px;
+}
+
+.readout p {
+  margin: 6px 0;
+}
+
+.readout p::before {
+  content: '> ';
+  color: var(--dim);
+}
+
+.js-result {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 15px;
+  color: var(--bright);
+  text-shadow: 0 0 8px var(--glow);
+  min-height: 20px;
+}
+
+.reset-row {
+  margin-top: 20px;
+}
+
+.reset-btn {
+  font-size: 10px;
+  color: var(--dim);
+  border-color: var(--dim);
+}
+
+.reset-btn:hover {
+  background: var(--dim);
+  color: #06120a;
+  box-shadow: 0 0 12px var(--dim);
+}
